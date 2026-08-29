@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maija Corey | PhD Student at The Scripps Reasearch Institute </title>
+<title>Maija Corey | PhD Student at The Scripps Research Institute </title>
 <meta name="description" content="Academic homepage — research, teaching, mentoring, and presentations.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -257,6 +257,45 @@
   .entry-body p{ margin:0; color: var(--text-dim); font-size: 0.94rem; }
   .entry-body .venue{ color: var(--ink); font-weight: 500; }
 
+  /* Presentation cards (photo + story) */
+  .presentation-list{ display:flex; flex-direction:column; gap: 44px; }
+  .presentation-card{
+    display:grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+    align-items:start;
+  }
+  @media (max-width: 700px){
+    .presentation-card{ grid-template-columns: 1fr; }
+  }
+  .presentation-card figure{ margin:0; }
+  .presentation-card img{
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    display:block;
+    background: var(--paper-dim);
+  }
+  .presentation-card figcaption{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+  .presentation-card .p-meta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size: 0.76rem;
+    color: var(--signal-dim);
+    display:block;
+    margin-bottom: 6px;
+  }
+  .presentation-card h3{ font-size: 1.18rem; margin-bottom: 4px; }
+  .presentation-card .venue{ color: var(--ink); font-weight: 500; }
+  .presentation-card p.venue-line{ margin: 0 0 14px 0; color: var(--text-dim); font-size: 0.94rem; }
+  .presentation-card p.story{ margin:0; color: var(--ink); font-size: 0.98rem; line-height: 1.65; }
+
   /* Contact */
   .contact-box{
     background: var(--ink);
@@ -302,7 +341,7 @@
 
 <nav>
   <div class="wrap">
-    <span class="nav-name">Maija Corey</span>
+    <span class="nav-name">Your Name</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
@@ -318,12 +357,12 @@
   <div class="wrap">
     <div>
       <span class="hero-eyebrow">PhD Candidate · Department, University</span>
-      <h1>My Name is Maija Corey.<br><em> I am a first year PhD student at the Scripps Research Institute.</em></h1>
+      <h1>Your Name<br><em>studies how [research area] works.</em></h1>
       <p class="tagline">I'm a PhD candidate researching [one-line description of your research focus]. My work sits at the intersection of [field A] and [field B], and I teach and mentor alongside it.</p>
       <div class="hero-links">
         <a class="btn btn-primary" href="#contact">Get in touch</a>
         <a class="btn btn-ghost" href="#">CV (PDF)</a>
-        <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=xNmz6BgAAAAJ&hl=en&oi=ao">Google Scholar</a>
+        <a class="btn btn-ghost" href="https://scholar.google.com/citations?user=xNmz6BgAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
       </div>
     </div>
 
@@ -397,28 +436,47 @@
       <span class="eyebrow">Presentations</span>
       <h2>Talks &amp; posters</h2>
     </div>
-    <div class="entry-list">
-      <div class="entry">
-        <div class="entry-meta">2026</div>
-        <div class="entry-body">
+    <div class="presentation-list">
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/poster-2026.jpg" alt="Presenting my poster at Conference Name 2026">
+          <figcaption>Poster session, Conference Name 2026</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">2026 · POSTER</span>
           <h3>Talk or poster title</h3>
-          <p><span class="venue">Conference / Society Name</span> — City, or virtual. Oral presentation / poster.</p>
+          <p class="venue-line"><span class="venue">Conference / Society Name</span> — City, or virtual.</p>
+          <p class="story">A few sentences about the conference itself: what you presented, a memorable question or conversation from the poster session, who you connected with, or what you took away from attending. This is a great place to make the page feel personal rather than just a list of credentials.</p>
         </div>
       </div>
-      <div class="entry">
-        <div class="entry-meta">2025</div>
-        <div class="entry-body">
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/talk-2025.jpg" alt="Giving an oral presentation at Conference Name 2025">
+          <figcaption>Oral presentation, Conference Name 2025</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">2025 · ORAL PRESENTATION</span>
           <h3>Talk or poster title</h3>
-          <p><span class="venue">Conference / Society Name</span> — City, or virtual. Oral presentation / poster.</p>
+          <p class="venue-line"><span class="venue">Conference / Society Name</span> — City, or virtual.</p>
+          <p class="story">A short story about giving this talk — nerves beforehand, a great question during Q&A, feedback you got, or how it shaped your project going forward.</p>
         </div>
       </div>
-      <div class="entry">
-        <div class="entry-meta">2025</div>
-        <div class="entry-body">
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/seminar-2025.jpg" alt="Departmental seminar talk">
+          <figcaption>Departmental seminar, 2025</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">2025 · DEPARTMENTAL SEMINAR</span>
           <h3>Departmental seminar title</h3>
-          <p><span class="venue">Department Seminar Series</span>, University Name.</p>
+          <p class="venue-line"><span class="venue">Department Seminar Series</span>, University Name.</p>
+          <p class="story">A sentence or two on this one — the audience, what you covered, or how it differed from a conference talk.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -461,21 +519,34 @@
       <span class="eyebrow">Mentoring</span>
       <h2>Mentoring &amp; outreach</h2>
     </div>
-    <div class="entry-list">
-      <div class="entry">
-        <div class="entry-meta">2024–present</div>
-        <div class="entry-body">
+    <div class="presentation-list">
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/mentoring-1.jpg" alt="Working with an undergraduate researcher in the lab">
+          <figcaption>With [mentee name], Lab Name</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">2024–PRESENT</span>
           <h3>Undergraduate research mentor</h3>
-          <p>Mentored [N] undergraduate researchers on projects related to [topic], Lab Name, University Name.</p>
+          <p class="venue-line"><span class="venue">Lab Name</span>, University Name.</p>
+          <p class="story">Mentored [N] undergraduate researchers on projects related to [topic]. A sentence or two about what mentoring looks like day-to-day, a project a mentee worked on, or something you're proud of from this experience.</p>
         </div>
       </div>
-      <div class="entry">
-        <div class="entry-meta">2023–present</div>
-        <div class="entry-body">
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/outreach-1.jpg" alt="Volunteering at a science outreach event">
+          <figcaption>Program or initiative name, event</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">2023–PRESENT</span>
           <h3>Program or initiative name</h3>
-          <p>Brief description of the mentoring program, outreach initiative, or student organization you contribute to.</p>
+          <p class="venue-line"><span class="venue">Organization Name</span>.</p>
+          <p class="story">Brief description of the mentoring program, outreach initiative, or student organization you contribute to — what it involves, who it serves, and why it matters to you.</p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -488,9 +559,10 @@
         <p>Happy to talk research, collaborations, teaching, or opportunities for better science.</p>
       </div>
       <div class="contact-links">
-        <a href="mailto:mcorey@scripps.edu">mcorey@scripps.edu</a>
-        <a href="https://scholar.google.com/citations?user=xNmz6BgAAAAJ&hl=en&oi=ao">Google Scholar</a>
-        <a href="https://www.linkedin.com/in/maijacorey/">LinkedIn</a>
+        <a href="mailto:you@university.edu">you@university.edu</a>
+        <a href="https://scholar.google.com/citations?user=xNmz6BgAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
       </div>
     </div>
   </div>
