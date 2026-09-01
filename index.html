@@ -208,6 +208,32 @@
   }
   .about-grid p{ margin:0; }
 
+  /* Motivation (personal, pull-quote style) */
+  .motivation{
+    background: var(--paper-dim);
+  }
+  .motivation .wrap{ max-width: 720px; }
+  .motivation .eyebrow{ display:block; margin-bottom: 18px; }
+  .motivation blockquote{
+    margin: 0;
+    font-family: 'Newsreader', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+    line-height: 1.5;
+    color: var(--ink);
+    position: relative;
+    padding-left: 26px;
+    border-left: 3px solid var(--signal);
+  }
+  .motivation p.signoff{
+    margin-top: 22px;
+    padding-left: 26px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--signal-dim);
+  }
+
   /* Research */
   .research-grid{
     display:grid;
@@ -296,6 +322,50 @@
   .presentation-card p.venue-line{ margin: 0 0 14px 0; color: var(--text-dim); font-size: 0.94rem; }
   .presentation-card p.story{ margin:0; color: var(--ink); font-size: 0.98rem; line-height: 1.65; }
 
+  /* Image carousel (for presentations with multiple photos) */
+  .img-carousel{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--paper-dim);
+  }
+  .img-carousel img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+  }
+  .img-carousel img.active{ opacity: 1; }
+  .carousel-dots{
+    position: absolute;
+    bottom: 10px;
+    left: 0; right: 0;
+    display:flex;
+    justify-content:center;
+    gap: 6px;
+    z-index: 2;
+  }
+  .carousel-dots button{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .carousel-dots button.active{
+    background: var(--signal);
+    transform: scale(1.25);
+  }
+  .carousel-dots button:focus-visible{ outline: 2px solid var(--signal); outline-offset: 2px; }
+
   /* Contact */
   .contact-box{
     background: var(--ink);
@@ -344,6 +414,7 @@
     <span class="nav-name">Maija Corey</span>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
+      <li><a href="#motivation">Motivation</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#presentations">Presentations</a></li>
       <li><a href="#teaching">Teaching</a></li>
@@ -403,6 +474,16 @@
   </div>
 </section>
 
+<section id="motivation" class="motivation">
+  <div class="wrap">
+    <span class="eyebrow">What motivates me</span>
+    <blockquote>
+      [Write one or two sentences, in your own voice, about the "why" behind your science — a moment, a person, or a question that pulled you into this work.]
+    </blockquote>
+    <p class="signoff">— Maija</p>
+  </div>
+</section>
+
 <section id="research">
   <div class="wrap">
     <div class="section-head">
@@ -441,46 +522,100 @@
 
       <div class="presentation-card">
         <figure>
-          <img src="images/poster-2026.jpg" alt="Presenting my poster at Conference Name 2026">
-          <figcaption>Poster session, Conference Name 2026</figcaption>
+          <img src="images/dguok-poster-2026.jpg" alt="Presenting DGUOK deficiency poster">
+          <figcaption>Poster session, AAI Annual Conference 2026</figcaption>
         </figure>
         <div>
-          <span class="p-meta">2026 · POSTER</span>
-          <h3>Talk or poster title</h3>
-          <p class="venue-line"><span class="venue">Conference / Society Name</span> — City, or virtual.</p>
-          <p class="story">A few sentences about the conference itself: what you presented, a memorable question or conversation from the poster session, who you connected with, or what you took away from attending. This is a great place to make the page feel personal rather than just a list of credentials.</p>
+          <span class="p-meta">2025–2026 · POSTER</span>
+          <h3>Deoxyguanosine Kinase Deficiency Activates S-Adenosyl Methionine–Driven Innate Immune Responses and Lipid Accumulation in HepG2 Cells</h3>
+          <p class="venue-line"><span class="venue">La Jolla Immunology Conference</span>, La Jolla, CA (2025) &amp; <span class="venue">American Association of Immunologists Annual Meeting</span>, Boston, MA (2026)</p>
+          <p class="story">I presented this work just before submitting it as my first-author paper to <em>Frontiers in Immunology</em> — now published. Getting to hear directly from immunologists at both venues sharpened the story I was telling, and I'm grateful for the chance to push toward stronger science for a rare disease that doesn't get enough attention.</p>
         </div>
       </div>
 
       <div class="presentation-card">
         <figure>
-          <img src="images/talk-2025.jpg" alt="Giving an oral presentation at Conference Name 2025">
-          <figcaption>Oral presentation, Conference Name 2025</figcaption>
+          <img src="images/oral-2025.jpg" alt="Giving my first oral presentation at the LJI Retreat">
+          <figcaption>Oral presentation, LJI Retreat, Lake Arrowhead, CA</figcaption>
         </figure>
         <div>
-          <span class="p-meta">2025 · ORAL PRESENTATION</span>
-          <h3>Talk or poster title</h3>
-          <p class="venue-line"><span class="venue">Conference / Society Name</span> — City, or virtual.</p>
-          <p class="story">A short story about giving this talk — nerves beforehand, a great question during Q&A, feedback you got, or how it shaped your project going forward.</p>
+          <span class="p-meta">MARCH 2025 · ORAL PRESENTATION</span>
+          <h3>Deoxyguanosine Kinase Regulates Innate Immune Response and Lipid Accumulation in HepG2 Cells</h3>
+          <p class="venue-line"><span class="venue">La Jolla Institute for Immunology Retreat</span>, Lake Arrowhead, CA</p>
+          <p class="story">My very first oral presentation. My PI, Dr. Sonia Sharma, trusted me — a tech at the time — to speak at an institute-wide retreat in front of some of the field's most accomplished immunologists. The night before, I told my coworkers about a nightmare: one particular PI grilling me relentlessly with questions. The next day, it actually happened — except it was one question, and it wasn't so bad. I learned to push back against the nerves, because it's never quite as bad as you imagine.</p>
         </div>
       </div>
 
       <div class="presentation-card">
         <figure>
-          <img src="images/seminar-2025.jpg" alt="Departmental seminar talk">
-          <figcaption>Departmental seminar, 2025</figcaption>
+          <div class="img-carousel" data-carousel data-interval="3800">
+            <img class="active" src="images/neutrophil-lji-2023.jpg" data-caption="La Jolla Immunology Conference, 2023" alt="Poster presentation at the La Jolla Immunology Conference, 2023">
+            <img src="images/neutrophil-lji-2024.jpg" data-caption="La Jolla Immunology Conference, 2024" alt="Poster presentation at the La Jolla Immunology Conference, 2024">
+            <img src="images/neutrophil-biologics-2024.jpg" data-caption="Festival for Biologics, San Diego, 2024" alt="Poster presentation at Festival for Biologics, 2024">
+            <img src="images/neutrophil-icap-2024.jpg" data-caption="ICAP, Lisbon, Portugal, 2024 — Best Poster Award" alt="Poster presentation at ICAP Lisbon, 2024, Best Poster Award">
+            <div class="carousel-dots"></div>
+          </div>
+          <figcaption data-carousel-caption>La Jolla Immunology Conference, 2023</figcaption>
         </figure>
         <div>
-          <span class="p-meta">2025 · DEPARTMENTAL SEMINAR</span>
-          <h3>Departmental seminar title</h3>
-          <p class="venue-line"><span class="venue">Department Seminar Series</span>, University Name.</p>
-          <p class="story">A sentence or two on this one — the audience, what you covered, or how it differed from a conference talk.</p>
+          <span class="p-meta">2023–2024 · POSTER · BEST POSTER AWARD</span>
+          <h3>Development of a Multi-Functional Assay to Monitor Neutrophil Activation and Apoptosis</h3>
+          <p class="venue-line"><span class="venue">La Jolla Immunology Conference</span> (2023 &amp; 2024), La Jolla, CA · <span class="venue">Festival for Biologics</span> (2024), San Diego, CA · <span class="venue">International Conference for Analytical Proteomics</span> (2024), Lisbon, Portugal</p>
+          <p class="story">I carried this poster across four conferences over two years, and each stop reframed the work a little. Moving from an immunology audience to a biotech one, and finally to Lisbon, pushed the story past a metabolism poster into something with real inflammatory and therapeutic implications — and it won Best Poster Presentation at the International Conference for Analytical Proteomics.</p>
+        </div>
+      </div>
+
+      <div class="presentation-card">
+        <figure>
+          <img src="images/alzheimers-poster-2023.jpg" alt="Poster board for Alzheimer's disease research at the LJI Retreat, 2023">
+          <figcaption>LJI Retreat, Lake Arrowhead, CA — November 2023</figcaption>
+        </figure>
+        <div>
+          <span class="p-meta">NOVEMBER 2023 · POSTER</span>
+          <h3>Inflammatory Mediators of Sex Differences in Alzheimer's Disease: A Human-to-Mouse Approach</h3>
+          <p class="venue-line"><span class="venue">La Jolla Immunology Retreat</span>, Lake Arrowhead, CA</p>
+          <p class="story">My first retreat — I was too nervous to even take a photo of myself with the poster. This project became my very first publication: a look at microglia in neuroimmunology, visualizing their inflammatory implications through a sex- and lipid-specific lens.</p>
         </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+document.querySelectorAll('[data-carousel]').forEach(function(carousel){
+  var imgs = Array.from(carousel.querySelectorAll('img'));
+  var dotsWrap = carousel.querySelector('.carousel-dots');
+  var figcaption = carousel.closest('figure').querySelector('[data-carousel-caption]');
+  var interval = parseInt(carousel.getAttribute('data-interval'), 10) || 4000;
+  var current = 0;
+
+  imgs.forEach(function(img, i){
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.setAttribute('aria-label', 'Show image ' + (i + 1));
+    if(i === 0) dot.classList.add('active');
+    dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = Array.from(dotsWrap.querySelectorAll('button'));
+
+  function goTo(index){
+    imgs[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = index;
+    imgs[current].classList.add('active');
+    dots[current].classList.add('active');
+    if(figcaption) figcaption.textContent = imgs[current].getAttribute('data-caption') || '';
+  }
+
+  var timer = setInterval(function(){ goTo((current + 1) % imgs.length); }, interval);
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo((current + 1) % imgs.length); }, interval);
+  }
+});
+</script>
 
 <section id="teaching">
   <div class="wrap">
